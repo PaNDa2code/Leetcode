@@ -20,25 +20,23 @@
 
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        # Preprocess the input string to add special characters
-        # between each character and at the ends to handle both
-        # even and odd length palindromes efficiently
+        
         processed = '#'.join('^{}$'.format(s))
         length = len(processed)
-        p = [0] * length  # Array to store the palindrome lengths
-        center = right = 0  # Center and right boundaries of the current palindrome
-        max_length = max_center = 0  # Length and center of the longest palindrome found
+        p = [0] * length 
+        center = right = 0 
+        max_length = max_center = 0  
 
         for i in range(1, length - 1):
             if i < right:
                 mirror = 2 * center - i
                 p[i] = min(right - i, p[mirror])
 
-            # Expand the palindrome centered at i
+          
             while processed[i + 1 + p[i]] == processed[i - 1 - p[i]]:
                 p[i] += 1
 
-            # Update the center and right boundaries if a longer palindrome is found
+           
             if i + p[i] > right:
                 center, right = i, i + p[i]
 
@@ -46,6 +44,6 @@ class Solution:
                     max_length = p[i]
                     max_center = i
 
-        # Retrieve the longest palindrome from the processed string
+        
         start = (max_center - max_length) // 2
         return s[start: start + max_length]
