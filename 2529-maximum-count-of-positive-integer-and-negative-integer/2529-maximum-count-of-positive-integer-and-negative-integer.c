@@ -1,7 +1,4 @@
-#include <stdio.h>
-int findMax(int a, int b) {
-    return (a > b) ? a : b;
-}
+
 int maximumCount(int* nums, int numsSize){
     int neg = 0;
     int pos = 0;
@@ -16,6 +13,6 @@ int maximumCount(int* nums, int numsSize){
         };
     };
     
-    return findMax(neg,pos);
+    return (neg > pos) ? neg : pos;
 
 };
