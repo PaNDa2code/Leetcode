@@ -1,23 +1,3 @@
-# class Solution:
-#     def longestPalindrome(self, s: str) -> str:
-        
-#         if len(s) == 1:
-#             return s
-#         elif len(s) == 0 or len(s) > 1000:
-#             return None
-
-#         strings = []
-
-#         for x in range(len(s)):
-#             for y in range(x,len(s)):
-                
-#                 string = s[x:y+1]
-
-#                 if string == string[::-1]:
-#                     strings.append(string)
-
-#         return max(strings,key=len)
-
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         
