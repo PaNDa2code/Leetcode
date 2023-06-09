@@ -6,16 +6,10 @@ class Solution:
         Tar = ord(target)
         
         for litter in letters:
-
-            let.append(ord(litter))
+            if ord(litter) > Tar:
+                let.append(ord(litter))
         
-        for i in let:
-
-            if i > Tar:
-
-                sma.append(i)
-
-        if sma == []:
+        if let == []:
             return letters[0]
 
-        return chr(min(sma))
+        return chr(min(let))
