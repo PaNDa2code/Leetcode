@@ -2,7 +2,6 @@ class Solution:
     def nextGreatestLetter(self, letters: list[str], target: str) -> str:
 
         let = []
-        sma = []
         Tar = ord(target)
         
         for litter in letters:
