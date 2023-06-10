@@ -6,8 +6,7 @@ class Solution:
         output = ''
         
         for i in range(l):
-            if i >= len(word1):output += word2[i]
-            elif i >= len(word2):output+= word1[i]
-            else :output += word1[i]+word2[i]
+            if i < len(word1):output += word1[i]
+            if i < len(word2):output += word2[i]
 
         return output
