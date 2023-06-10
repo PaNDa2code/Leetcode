@@ -5,11 +5,11 @@ class Solution:
         maxCandies = max(candies)
         bools = []
         
-        def test(x):
-            return x + extraCandies >= maxCandies
+        # def test(x):
+        #     return x + extraCandies >= maxCandies
 
         for i in candies:
 
-            bools.append(test(i))
+            bools.append(i + extraCandies >= maxCandies)
 
         return bools
