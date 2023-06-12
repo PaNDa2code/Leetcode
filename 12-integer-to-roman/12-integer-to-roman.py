@@ -15,16 +15,16 @@ class Solution:
             4: 'IV',
             1: 'I'
             }
-        output = ''
-        
+        output = []
+
         for key in rom.keys():
 
             if key <= num:
 
                 count = num // key
 
-                num -= key*count
+                num %= key
 
-                output += rom[key]*count
+                output.append(rom[key]*count)
 
-        return output
+        return ''.join(output)
