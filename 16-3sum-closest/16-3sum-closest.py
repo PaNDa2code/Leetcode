@@ -26,6 +26,7 @@ class Solution:
                     right -= 1
                     
                 else:
+                    
                     break
 
 
