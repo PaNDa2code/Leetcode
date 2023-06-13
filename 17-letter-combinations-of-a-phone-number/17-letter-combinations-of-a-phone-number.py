@@ -19,6 +19,6 @@ class Solution:
         
 
 
-        crc = tuple([digit_to_letter[int(dig)] for dig in digits])
+        # crc = tuple([digit_to_letter[int(dig)] for dig in digits])
 
-        return [''.join(comb) for comb in itertools.product(*crc)]
+        return [''.join(comb) for comb in itertools.product(*tuple([digit_to_letter[int(dig)] for dig in digits]))]
