@@ -9,8 +9,6 @@ class Solution:
 
         for c in range(len(grid)):
 
-            cc = tuple(grid[i][c] for i in range(len(grid)))
-
-            out += dic[cc]
+            out += dic[tuple(grid[i][c] for i in range(len(grid)))]
 
         return out
