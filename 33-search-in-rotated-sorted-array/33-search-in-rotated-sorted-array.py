@@ -4,18 +4,19 @@ class Solution:
             return -1
         
         def find_pivot(lst):
-            left = 0
-            right = len(lst) - 1
+            return nums.index(min(nums))
+#             left = 0
+#             right = len(lst) - 1
 
-            while left < right:
-                mid = (left + right) // 2
+#             while left < right:
+#                 mid = (left + right) // 2
 
-                if lst[mid] > lst[right]:
-                    left = mid + 1
-                else:
-                    right = mid
+#                 if lst[mid] > lst[right]:
+#                     left = mid + 1
+#                 else:
+#                     right = mid
 
-            return left
+#             return left
         
         pivot = find_pivot(nums)
 
@@ -34,9 +35,7 @@ class Solution:
                 right = mid - 1
         
         return -1
-        
-        
-        
+      
         
 
 #         if target not in nums:
