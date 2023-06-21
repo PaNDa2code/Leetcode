@@ -11,23 +11,21 @@ class Solution:
         
         def check(root):
             if root is None:
-                return True
+                return 0, True
+            left_hight , left_balanced = check(root.left)
+            if not left_balanced:
+                return -1, False
+            right_hight , right_balanced = check(root.right)
+            if not right_balanced:
+                return -1, False
             
-            left_height = height(root.left)
-            right_height = height(root.right)
-
-            if abs(left_height - right_height) > 1:
-                return False
-            else:
-                return check(root.left) and check(root.right)
+            node_hight = 1 + max(left_hight,right_hight)
             
-        def height(root):
-            if root:
-                return 1 + max(height(root.left), height(root.right))
-            else:
-                return 0
+            is_b = abs(right_hight - left_hight) <= 1
+            
+            return node_hight, is_b
 
-        return check(root)
+        return check(root)[1]
 
 
         
