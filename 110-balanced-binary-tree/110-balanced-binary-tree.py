@@ -12,25 +12,23 @@ class Solution:
         def check(root):
             
             if root is None:
-                return 0, True
+                return 0
             
+            left_hight = check(root.left)
             
-            left_hight , left_balanced = check(root.left)
-            
-            #early cheak to reduse times of trys
-            if not left_balanced:
-                return -1, False
+            if left_hight == -1:
+                return -1
              
-            right_hight , right_balanced = check(root.right)
+            right_hight = check(root.right)
             
-            if not right_balanced:
-                return -1, False
+            if right_hight == -1:
+                return -1
             
-            node_hight = 1 + max(left_hight,right_hight)
             
-            is_b = abs(right_hight - left_hight) <= 1
+            if abs(right_hight - left_hight) > 1:
+                return -1
             
-            return node_hight, is_b
+            return 1 + max(left_hight,right_hight)
 
-        return check(root)[1]
+        return check(root) != -1
       
