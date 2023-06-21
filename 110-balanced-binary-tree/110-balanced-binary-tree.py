@@ -10,12 +10,19 @@ class Solution:
             return True
         
         def check(root):
+            
             if root is None:
                 return 0, True
+            
+            
             left_hight , left_balanced = check(root.left)
+            
+            #early cheak to reduse times of trys
             if not left_balanced:
                 return -1, False
+             
             right_hight , right_balanced = check(root.right)
+            
             if not right_balanced:
                 return -1, False
             
@@ -26,8 +33,4 @@ class Solution:
             return node_hight, is_b
 
         return check(root)[1]
-
-
-        
-            
-        
+      
