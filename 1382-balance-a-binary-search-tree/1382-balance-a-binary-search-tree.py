@@ -14,7 +14,7 @@ class Solution:
             else:
                 return []
         
-        def bst(lis,left,right):
+        def bst(lis):
 
             if not lis:
                 return 
@@ -25,14 +25,14 @@ class Solution:
             mid  = (left + right) // 2
             
             root = TreeNode(lis[mid])
-            root.left = bst(lis[:mid],left,mid - 1)
-            root.right= bst(lis[mid+1:],mid + 1,right)
+            root.left = bst(lis[:mid])
+            root.right= bst(lis[mid+1:])
             
             return root
         
         sorted = sortedtrav(root)
 
-        return bst(sorted,0,len(sorted)-1)
+        return bst(sorted)
             
             
             
