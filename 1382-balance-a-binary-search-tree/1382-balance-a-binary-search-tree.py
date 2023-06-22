@@ -6,35 +6,26 @@
 #         self.right = right
 class Solution:
     def balanceBST(self, root: TreeNode) -> TreeNode:
+        sorted_list = self.inorderTraversal(root)
+        return self.constructAVL(sorted_list, 0, len(sorted_list) - 1)
+    
+    def inorderTraversal(self, node: TreeNode) -> List[int]:
+        if not node:
+            return []
+        return self.inorderTraversal(node.left) + [node.val] + self.inorderTraversal(node.right)
+    
+    def constructAVL(self, sorted_list: List[int], left: int, right: int) -> TreeNode:
+        if left > right:
+            return None
         
-        def sortedtrav(node):
-            
-            if node:
-                return sortedtrav(node.left)+[node.val]+sortedtrav(node.right)
-            else:
-                return []
+        mid = (left + right) // 2
+        root = TreeNode(sorted_list[mid])
         
-        def bst(lis):
+        root.left = self.constructAVL(sorted_list, left, mid - 1)
+        root.right = self.constructAVL(sorted_list, mid + 1, right)
+        
+        return root
 
-            if not lis:
-                return 
-            
-            left = 0
-            right= len(lis)-1
-            
-            mid  = (left + right) // 2
-            
-            root = TreeNode(lis[mid])
-            root.left = bst(lis[:mid])
-            root.right= bst(lis[mid+1:])
-            
-            return root
-        
-        sorted = sortedtrav(root)
-
-        return bst(sorted)
-            
-            
             
         
             
