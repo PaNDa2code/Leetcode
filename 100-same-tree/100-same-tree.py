@@ -7,9 +7,9 @@
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
-        def tre(node):
-            if node:
-                return [node.val] + tre(node.left) + tre(node.right)
+        def tre(node1):
+            if node1:
+                return [node1.val] + tre(node1.left) + tre(node1.right)
             else:
                 return ['null']
         
