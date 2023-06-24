@@ -19,12 +19,4 @@ class Solution:
         if not root:
             return True
 
-        return p(root.left, root.right)
-        
-
-                
-                
-                
-                 
-            
-        
+        return p(root.left, root.right)       
