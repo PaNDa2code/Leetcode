@@ -8,6 +8,7 @@
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         def p(node1, node2):
+            
             if not node1 and not node2:
                 return True
             elif not node1 or not node2 or (node1.val != node2.val):
