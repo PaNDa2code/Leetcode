@@ -1,1 +1,1 @@
-It's kinda messy, but I realized that using the counting method could be a bad idea if there's a list like [1000, 1, 2]. This is because the difference between the maximum value and the minimum value is too big when compared to the length of the original array.
+
