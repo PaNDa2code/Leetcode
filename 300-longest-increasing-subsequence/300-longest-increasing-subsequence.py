@@ -25,4 +25,6 @@ class Solution:
                 idx = left
                 sub[idx] = num
                 
+        # the final complacty is O(n log n) for the time
+        # and O(n) for the space complacty in worst case, becuse of the array 'sub'
         return len(sub)
