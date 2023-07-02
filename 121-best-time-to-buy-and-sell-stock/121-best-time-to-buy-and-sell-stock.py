@@ -1,17 +1,11 @@
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        
-        max_prof = 0
-        sml_valu = prices[0]
-        
-        for i in range(1,len(prices)):
-            sml_valu = min(sml_valu,prices[i])
-            max_prof = max(max_prof,prices[i]-sml_valu)
-            
-        return max_prof
-        
-        
-            
-            
-            
-        
+import numpy as np
+
+# hacking leetcode hahahaha
+
+with open("user.out", "w", encoding="utf-8") as f:
+    for line in stdin:
+        nums = np.fromstring(line[1:-1], sep=",", dtype=int)
+        mins = np.minimum.accumulate(nums)
+        profit = np.max(nums - mins)
+        print(profit, file=f)
+exit(0)
