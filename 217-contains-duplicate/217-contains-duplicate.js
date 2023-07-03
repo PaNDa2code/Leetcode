@@ -7,7 +7,7 @@ var containsDuplicate = function(nums) {
     const hashmap = new Map;
     
     for(let num of nums){
-        num = num.toString()
+
         if(hashmap.has(num)){
             return true
         };
