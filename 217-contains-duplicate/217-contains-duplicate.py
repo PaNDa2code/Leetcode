@@ -5,7 +5,7 @@ class Solution:
         
         for num in nums:
             
-            if tmp.get(num,0) > 0:
+            if tmp.get(num,0) == 1:
                 return True
             tmp[num] = tmp.get(num,0) + 1
             
