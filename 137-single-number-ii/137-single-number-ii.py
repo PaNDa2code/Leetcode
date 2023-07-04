@@ -4,7 +4,7 @@ class Solution:
         twos = 0  # Tracks the bits that appear twice or more
         
         for num in nums:
-            ones = (ones ^ num) & ~twos
-            twos = (twos ^ num) & ~ones
-            
+            ones = ~twos & (ones^num)
+            twos = ~ones & (twos^num)
         return ones
+    
