@@ -4,63 +4,49 @@ class Solution:
             return -1
         
         def find_pivot(lst):
-            return nums.index(min(nums))
-#             left = 0
-#             right = len(lst) - 1
+            left = 0
+            right = len(lst) - 1
 
-#             while left < right:
-#                 mid = (left + right) // 2
+            while left < right:
+                mid = (left + right) // 2
 
-#                 if lst[mid] > lst[right]:
-#                     left = mid + 1
-#                 else:
-#                     right = mid
+                if lst[mid] > lst[right]:
+                    left = mid + 1
+                else:
+                    right = mid
 
-#             return left
-        
+            return left
+
+                
+
         pivot = find_pivot(nums)
+        # print(pivot)
 
-        left = 0
-        right = len(nums) - 1
-
-        while left <= right:
-            mid = (left + right) // 2
-            mid_pivot = (mid + pivot) % len(nums)
-
-            if nums[mid_pivot] == target:
-                return mid_pivot
-            elif nums[mid_pivot] < target:
-                left = mid + 1
-            else:
-                right = mid - 1
+        def find_target(lst,t):
+            
+            left = 0
+            
+            right = len(lst) -1
+            
+            while left <= right:
+                
+                mid = (left + right) // 2
+                
+                if lst[mid] > t:
+                    right = mid - 1
+                elif lst[mid] == t:
+                    return mid
+                else:
+                    left = mid + 1
+                
+            return left
         
-        return -1
-      
+        return (find_target(nums[pivot:]+nums[:pivot+1],target) + pivot) % len(nums)
+            
+                    
+                    
+                
+                
+            
         
 
-#         if target not in nums:
-#             return -1
-#         if len(nums) == 1:
-#             return 0
-        
-#         return nums.index(target)
-#         # left = 0
-#         # right= len(nums)-1
-
-# #         while left <= right:
-# #             mid = (left+right)//2
-
-# #             if target == nums[mid]:
-# #                 return mid
-    
-
-# #             if nums[left] <= nums[mid]:
-# #                 if nums[left]<=target<=nums[mid]:
-# #                     right = mid - 1
-# #                 else:
-# #                     left = mid + 1
-# #             else:
-# #                 if nums[mid]<=target<=nums[right]:
-# #                     left = mid + 1
-# #                 else:
-# #                     right = mid - 1
