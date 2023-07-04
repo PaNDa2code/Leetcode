@@ -21,7 +21,7 @@ class Solution:
             
             else:
                 
-                right = mid
+                right = mid 
             
         return nums[left]
             
