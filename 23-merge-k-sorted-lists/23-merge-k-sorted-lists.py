@@ -1,6 +1,9 @@
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         
+        
+        # I have focused on space comp and complitly forgot about time comp
+        
         out_head = ListNode()
         out_node = out_head
         k = len(lists)
