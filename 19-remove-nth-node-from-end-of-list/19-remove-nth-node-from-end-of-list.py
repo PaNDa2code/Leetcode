@@ -22,16 +22,16 @@ class Solution:
         if r == 0:
             return head.next
         
-        node = head
+
+        r -= 1
+        
+        node = eval(f"head{'.next'*r}")
         
         
-        while r > 1:
-            
-            node = node.next
-            
-            r -= 1
-            
+        
         node.next = node.next.next
+            
+            
         
         return head
         
