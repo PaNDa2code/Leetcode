@@ -50,7 +50,7 @@ class Solution:
                 
                 left = mid + 1
                 
-        return bs_in_row(row,target)
+        return bs_in_row(row,target) if row != -1 else False
         
     
                 
