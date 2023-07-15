@@ -18,10 +18,8 @@ class Solution:
         
         while cur_level_nodes != []:
             
-            tmp = []
             
             for node in cur_level_nodes:
-                tmp.append(node.val)
                 
                 if node.left:
                     
@@ -31,7 +29,7 @@ class Solution:
                     
                     next_level_nodes.append(node.right)
                     
-            out.append(tmp[-1])
+            out.append(cur_level_nodes[-1].val)
             
             cur_level_nodes = next_level_nodes
             
