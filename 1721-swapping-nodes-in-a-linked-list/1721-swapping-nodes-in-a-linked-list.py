@@ -19,20 +19,20 @@ class Solution:
             
         def get_nodes(i:int):
             # O(N)
-            # cur_node = head
+            cur_node = head
             
-            # while i!=0:
+            while i!=0:
                 
-                # cur_node = cur_node.next
-                # i-=1
+                cur_node = cur_node.next
+                i-=1
                 
-            # return cur_node
+            return cur_node
             
             # O(1)
             
-            tmp = head
+#             tmp = head
             
-            return eval(f"tmp{'.next'*i}")
+#             return eval(f"tmp{'.next'*i}")
             
         
                 
