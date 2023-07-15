@@ -5,54 +5,25 @@
 #         self.next = next
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+           
+        node1 = node2 = head
         
+        for _ in range(k-1):
+            
+            node1 = node1.next
         
-        def list_len(head):
-            
-            if head.next:
-                
-                return 1 + list_len(head.next)
-            
-            else:
-                
-                return 1
-            
-        def get_nodes(i:int):
-            # O(N)
-            cur_node = head
-            
-            while i!=0:
-                
-                cur_node = cur_node.next
-                i-=1
-                
-            return cur_node
-            
-            # O(1)
-            
-#             tmp = head
-            
-#             return eval(f"tmp{'.next'*i}")
-            
+        first_node = node1
         
-                
+        while node1.next:
+            node1 = node1.next
+            node2 = node2.next
             
             
-        n = list_len(head)
-        
-        
-        steps_to_left_target = k - 1
-        
-        steps_to_right_target = n - k
-        
-        
-        
-        left_node, right_node = get_nodes(steps_to_left_target), get_nodes(steps_to_right_target)
-        
-        
-        left_node.val, right_node.val = right_node.val, left_node.val
+            
+        first_node.val, node2.val = node2.val, first_node.val
         
         return head
+        
         
         
         
