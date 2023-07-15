@@ -3,6 +3,7 @@ class Solution:
         
         idxs = []
         words = []
+        
         def str_2_list(st):
             out = []
             for char in st:
@@ -28,7 +29,6 @@ class Solution:
             else:
                 tmp[word] = [idx]
         
-        print(tmp)
         out = []
         for word in tmp:
             l = []
