@@ -6,12 +6,10 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        def helper(node):
-            
-            if not node:
-                return 0
-            
-            return max( (1+helper(node.left)) , (1+helper(node.right)) )
         
-        return helper(root)
+        if not root:
+            
+            return 0
+        
+        return max(1+Solution.maxDepth(self,root.left), 1+Solution.maxDepth(self,root.right))
                 
