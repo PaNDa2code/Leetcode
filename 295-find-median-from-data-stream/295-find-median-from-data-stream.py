@@ -23,8 +23,19 @@ class MedianFinder:
 
     def addNum(self, num: int) -> None:
         
-        insert(self.arr,num)
+        left = 0
+        right = len(self.arr) - 1
 
+        while left <= right:
+            mid = (left + right) // 2
+
+            if self.arr[mid] <= num:
+                left = mid + 1
+            elif self.arr[mid] > num:
+                right = mid - 1
+
+        self.arr.insert(left, num)
+        
     def findMedian(self) -> float:
         
         mid = (len(self.arr)-1) // 2
