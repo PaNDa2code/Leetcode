@@ -1,47 +1,48 @@
 class Solution:
-    def solveSudoku(self, board: List[List[str]]) -> None:
-        def is_valid(num, x, y, board):
-            # Check row
-            for i in range(9):
-                if board[i][x] == num:
+    def isValid(self, board, row, col, num) -> bool:
+        
+        for x in range(9):
+            if board[row][x] == num:
+                return False
+        
+        for y in range(9):
+            if board[y][col] == num:
+                return False
+        
+        start_x = (col // 3)*3
+        start_y = (row // 3)*3
+
+        for y in range(3):
+            for x in range(3):
+                if (board[start_y + y][start_x + x] == num):
                     return False
+        
+        return True
 
-            # Check column
-            for j in range(9):
-                if board[y][j] == num:
-                    return False
+    def findempty(self,board) -> set:
 
-            # Check 3x3 box
-            startRow = (y // 3) * 3
-            startCol = (x // 3) * 3
-            for i in range(3):
-                for j in range(3):
-                    if board[startRow + i][startCol + j] == num:
-                        return False
+        for y in range(9):
+            for x in range(9):
+                if board[y][x] == '.':
+                    return y , x
+        return -1,-1
+    
+    def solveSudoku(self,board) -> bool:
 
-            return True
+        y, x = self.findempty(board)
 
-        def solve(board):
-
-
-            for y in range(9):
-                for x in range(9):
-
-                    if board[y][x] == '.':
-
-                        for num in range(1,10):
-
-                            if is_valid(str(num),x,y,board):
-
-                                board[y][x] = str(num)
-
-                                if solve(board):
-                                    return True
-
-                                board[y][x] = '.'
-
-                        return False
-
+        if y == -1 and x == -1:
             return True
         
-        solve(board)
+        for num in map(str,range(1,10)):
+
+            if self.isValid(board,y,x,num):
+
+                board[y][x] = num
+
+                if self.solveSudoku(board):
+                    return True
+                
+                board[y][x] = '.'
+
+        return False
