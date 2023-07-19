@@ -1,3 +1,5 @@
+import numpy as np
+
 class Solution:
     def isValid(self, board, row, col, num) -> bool:
         
@@ -20,7 +22,7 @@ class Solution:
         return True
 
     def findempty(self,board) -> set:
-
+            
         for y in range(9):
             for x in range(9):
                 if board[y][x] == '.':
