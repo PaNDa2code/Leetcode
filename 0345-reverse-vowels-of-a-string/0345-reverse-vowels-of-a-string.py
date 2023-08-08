@@ -1,28 +1,36 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
         
-        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-
-        hash_map = {}
-
-        for x,c in enumerate(s):
-
-            if c in hash_map:
-                hash_map[c].append(x)
-            else:
-                hash_map[c] = [x]
-
-        v_idxs = sorted([x for c in vowels for x in hash_map.get(c, [])])
-
         out = [c for c in s]
 
-        for x,c in enumerate(out):
+        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
 
-            if len(v_idxs)>1 and x == v_idxs[0]:
+        left = 0
 
-                right = v_idxs.pop()
-                left = v_idxs.pop(0)
+        right = len(s) - 1
 
-                out[left],out[right] = out[right],out[left]
+        def swap(l,r):
+            out[l],out[r] = out[r],out[l]
+
+        while left <= right:
+
+            left_in_v = s[left] in vowels
+            right_in_v = s[right] in vowels
+
+            if left_in_v and right_in_v:
+
+                swap(left,right)
+                left += 1
+                right -= 1
+
+            elif left_in_v:
+                right -= 1
+
+            elif right_in_v:
+                left += 1
+
+            else:
+                right -= 1
+                left += 1
 
         return ''.join(out)
