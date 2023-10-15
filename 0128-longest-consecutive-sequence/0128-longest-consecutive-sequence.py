@@ -5,15 +5,11 @@ class Solution:
         
         maxsq = 0
         
-        for num in nums:
-            
+        for num in nums: 
             if not num - 1 in Set:
-                
                 sq = 1
-                add = 1
-                while num + add in Set:
+                while num + sq in Set:
                     sq+=1
-                    add +=1
                 maxsq = max(maxsq,sq)
                 
         return maxsq
