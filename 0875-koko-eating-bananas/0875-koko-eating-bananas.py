@@ -4,7 +4,7 @@ class Solution:
         def check(k):
             h = 0
             for b in piles:
-                h += (b // k) + (b % k > 0)
+                h += (b // k) + int(b % k > 0)
             return h
         
         left = 1
