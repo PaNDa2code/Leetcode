@@ -10,10 +10,10 @@ class Solution:
             if not num - 1 in Set:
                 
                 sq = 1
-                d = 1
-                while num + d in Set:
+                add = 1
+                while num + add in Set:
                     sq+=1
-                    d +=1
+                    add +=1
                 maxsq = max(maxsq,sq)
                 
         return maxsq
